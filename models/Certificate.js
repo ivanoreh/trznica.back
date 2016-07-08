@@ -13,6 +13,7 @@ var Types = keystone.Field.Types;
 var Certificate = new keystone.List('Certificate', {
 	autokey: {path: 'certificate', from: 'ime', unique: true},
 	track: true,
+	map: {name: 'ime'},
 	defaultSort: '-createdAt',
 	//nodelete: true
 });
