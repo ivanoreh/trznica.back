@@ -74,7 +74,7 @@ exports = module.exports = function(app) {
 	// Views
 	app.get('/', routes.views.index);
 
-	app.get('/api/products', function (req, res) {
+	app.get('/products', function (req, res) {
 		try {
 			keystone.list('Product').model.find().exec(function (err, products) {
 				if (err) {
@@ -89,14 +89,110 @@ exports = module.exports = function(app) {
 		}
 	});
 
-	app.get('/users', function (req, res) {
+	app.get('/product/:pid', function (req, res) {
 		try {
-			keystone.list('User').model.find().exec(function (err, users) {
+			keystone.list('Product').model.find().where("_id", req.params.pid).exec(function (err, products) {
 				if (err) {
 					res.send({status: "NOT OK"});
 				}
 				else {
-					res.send(users);
+					res.send(products);
+				}
+			})
+		} catch (e) {
+			console.log(e);
+		}
+	});
+
+	app.get('/owner/:oid', function (req, res) {
+		try {
+			keystone.list('User').model.find().where("_id", req.params.oid)
+				.select('_id name').exec(function (err, owners) {
+				if (err || owners == undefined || owners.length == 0) {
+					res.send({status: "NOT OK"});
+				}
+				else {
+					var ret ={};
+					ret["vlasnik"] = owners[0];
+
+					keystone.list('Product').model.find().where("vlasnik", req.params.oid).exec(function (err, products) {
+						if (err) {
+							res.send(ret);
+						}
+						else {
+							ret["products"] = products;
+							keystone.list('Najam').model.find().where("vlasnik", req.params.oid).exec(function (err, najams) {
+								if (err) {
+									res.send({status: "NOT OK"});
+								}
+								else {
+									ret["najmovi"] = najams;
+									res.send(ret);
+								}
+							})
+						}
+					})
+				}
+			})
+		} catch (e) {
+			console.log(e);
+		}
+	});
+
+	app.get('/objekt/:oid', function (req, res) {
+		try {
+			keystone.list('Objekt').model.find().where('_id', req.params.oid).exec(function (err, objekti) {
+				if (err) {
+					res.send({status: "NOT OK"});
+				}
+				else {
+					res.send(objekti);
+				}
+			})
+		} catch (e) {
+			console.log(e);
+		}
+	});
+
+	app.get('/certificate/:cid', function (req, res) {
+		try {
+			keystone.list('Certificate').model.find().where('_id', req.params.pid).exec(function (err, objekti) {
+				if (err) {
+					res.send({status: "NOT OK"});
+				}
+				else {
+					res.send(objekti);
+				}
+			})
+		} catch (e) {
+			console.log(e);
+		}
+	});
+
+	app.get('/certificate/:cid', function (req, res) {
+		try {
+			keystone.list('Certificate').model.find().where('_id', req.params.pid).exec(function (err, objekti) {
+				if (err) {
+					res.send({status: "NOT OK"});
+				}
+				else {
+					res.send(objekti);
+				}
+			})
+		} catch (e) {
+			console.log(e);
+		}
+	});
+
+
+	app.get('/category/:cid', function (req, res) {
+		try {
+			keystone.list('Category').model.find().where('_id', req.params.cid).exec(function (err, category) {
+				if (err) {
+					res.send({status: "NOT OK"});
+				}
+				else {
+					res.send(category);
 				}
 			})
 		} catch (e) {

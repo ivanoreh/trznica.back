@@ -74,10 +74,11 @@ keystone.set('cors allow headers', true);
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	'users': 'users',
+	'korisnici': 'users',
 	'objekti': 'objekts',
-	'racuni': 'racuns',
 	'proizvodi': 'products',
+	'kategorije': 'categories',
+	'racuni': 'racuns',
 	'certifikati': 'certificates',
 	'najmovi': 'najams'
 });
