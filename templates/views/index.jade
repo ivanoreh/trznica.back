@@ -2,23 +2,21 @@ extends ../layouts/default
 
 block content
 	.container: .jumbotron
-		img(src='/img/header-logo-small.png', width='160')
-		h1 Welcome
-		p This is <a href='http://bosso.lu' target='_blank'>Bosso</a> official admin UI .
-		p You have total control over your Products and Users.
-		p Every product you add is stored in database and will be displayed on the website.
-		p If you want to be a part of this project feel free to
-			a(href='mailto:ivan.oreh@hotmail.com', style='margin-right: 10px').btn.btn-lg Contact
-			| us
+		img(src='/img/logo.png', width='160')
+		h1 Dobrodošli!
+		p Ovo je  <a href='http://www.komunalac-kc.hr' target='_blank'>Tržnica KC Online</a> službeno admin sučelje .
+		p Na jednom mjestu imate kontrolu nad cijelom ponudom, korisnicima i proizvodima.
+		p Ukoliko se želite ukljućiti u program Tržnice KC, javite nam se na
+			a(href='mailto:info@komunalac-kc.hr', style='margin-right: 10px').btn.btn-lg info@komunalac-kc.hr
 		hr
 
 		if user && user.canAccessKeystone
 			p
-				a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
+				a(href='/keystone').btn.btn-lg.btn-primary Otvori Admin sučelje
 		else
 			p
-				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
-				|  to use the Admin UI.
+				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Prijava
+				|  na Amin sučelje.
 
 		hr
 		//p Author <a href='https://ivanorehovec.info' target='_blank'>Ivan Orehovec</a>

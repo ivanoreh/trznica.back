@@ -15,6 +15,7 @@ User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	password: { type: Types.Password, initial: true, required: true },
+	tip: {type: Types.Select, options: 'OPG, Pravna Osoba, Ostalo', initial: true, default: "Ostalo"}
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 	isProtected: { type: Boolean, noedit: true, hidden: true }, 
@@ -23,7 +24,7 @@ User.add({
 
 // Provide access to Keystone
 User.schema.virtual('canAccessKeystone').get(function() {
-	return this.isAdmin;
+	return true;
 });
 
 

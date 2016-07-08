@@ -16,7 +16,8 @@ exports.create = {
 			password: 'kckomunalac',
 			isAdmin: true,
 			isProtected: true, 
-			canDelete: true
+			canDelete: true,
+			canAccessKeystone: true
 		}
 	]
 };

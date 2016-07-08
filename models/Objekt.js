@@ -19,7 +19,6 @@ var Objekt = new keystone.List('Objekt', {
 
 Objekt.add({
 	selektor: {type: Types.Text, initial: true, required: true},
-	rezervacija: {type: Types.Relationship, ref: 'Reservation', },
 });
 
 
