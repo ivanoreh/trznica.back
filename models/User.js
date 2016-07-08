@@ -12,7 +12,7 @@ var User = new keystone.List('User', {
 });
 
 User.add({
-	name: { type: Types.Name, required: true, index: true },
+	name: { type: Types.Name, required: true, initial: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	password: { type: Types.Password, initial: true, required: true },
 	tip: {type: Types.Select, options: 'OPG, Pravna Osoba, Ostalo', initial: true, default: "Ostalo"}
