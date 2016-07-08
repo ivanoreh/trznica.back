@@ -8,14 +8,15 @@ var Types = keystone.Field.Types;
 
 var User = new keystone.List('User', {
 	track: true, 
-	noedit: true
+	//noedit: true
 });
 
 User.add({
 	name: { type: Types.Name, required: true, initial: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	password: { type: Types.Password, initial: true, required: true },
-	tip: {type: Types.Select, options: 'OPG, Pravna Osoba, Ostalo', initial: true, default: "Ostalo"}
+	tip: {type: Types.Select, options: 'OPG, Pravna Osoba, Ostalo', initial: true, default: "Ostalo"},
+	slika: {type: Types.CloudinaryImage}
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 	isProtected: { type: Boolean, noedit: true, hidden: true }, 
