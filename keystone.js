@@ -93,9 +93,9 @@ var keystone = require('keystone'),
 
 var admins = [
 	{
-		email: 'ivan@ivan.co',
+		email: 'trznica@komunalac.kc',
 		password: 'adminasdf',
-		name: { first: 'Ivan', last: 'Oreh' }
+		name: { first: 'Ivan', last: 'Admin' }
 	}
 ];
 
