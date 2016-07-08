@@ -200,6 +200,20 @@ exports = module.exports = function(app) {
 		}
 	});
 
+	app.get('/racuni', function (req, res) {
+		try {
+			keystone.list('Racun').model.find().exec(function (err, category) {
+				if (err) {
+					res.send({status: "NOT OK"});
+				}
+				else {
+					res.send(category);
+				}
+			})
+		} catch (e) {
+			console.log(e);
+		}
+	});
 
 	app.get('/users', function (req, res) {
 		try {
