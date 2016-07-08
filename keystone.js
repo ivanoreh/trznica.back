@@ -78,7 +78,8 @@ keystone.set('nav', {
 	'objekti': 'objekts',
 	'racuni': 'racuns',
 	'proizvodi': 'products',
-	'certifikati': 'certificates'
+	'certifikati': 'certificates',
+	'najmovi': 'najams'
 });
 
 // Start Keystone to connect to your database and initialise the web server
