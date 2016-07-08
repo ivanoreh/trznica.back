@@ -19,8 +19,8 @@ var Objekt = new keystone.List('Objekt', {
 });
 
 Objekt.add({
-	selektor: {type: Types.Text, initial: true, required: true},
-	tip : {type: Types.Select, options: "stol, štand, kiosk, prostorija, spremiste,  ostalo", default: "ostalo", initial: true}
+	tip : {type: Types.Select, options: "stol, štand, kiosk, prostorija, spremiste,  ostalo", default: "ostalo", initial: true},
+	selektor: {type: Types.Text, initial: true, required: true}
 });
 
 
