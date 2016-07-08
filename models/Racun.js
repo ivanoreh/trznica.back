@@ -31,5 +31,5 @@ Racun.add({
  * Registration
  */
 
-Racun.defaultColumns = 'vlasnik, proizvod, kolicina, cijena, datum';
+Racun.defaultColumns = 'proizvod, kolicina, cijena, datum';
 Racun.register();

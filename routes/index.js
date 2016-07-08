@@ -104,6 +104,23 @@ exports = module.exports = function(app) {
 		}
 	});
 
+
+	app.get('/users', function (req, res) {
+		try {
+			keystone.list('User').model.find().exec(function (err, users) {
+				if (err) {
+					res.send({status: "NOT OK"});
+				}
+				else {
+					res.send(users);
+				}
+			})
+		} catch (e) {
+			console.log(e);
+		}
+	});
+
+
 }
 
 function valueInArray(arr, val) {

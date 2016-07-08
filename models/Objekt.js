@@ -13,6 +13,7 @@ var Types = keystone.Field.Types;
 var Objekt = new keystone.List('Objekt', {
 	autokey: {path: 'objekt', from: 'selektor', unique: true},
 	track: true,
+	map: {name: 'selektor'},
 	defaultSort: '-createdAt',
 	//nodelete: true
 });
@@ -27,5 +28,5 @@ Objekt.add({
  * Registration
  */
 
-Objekt.defaultColumns = 'vlasnik, proizvod, kolicina, cijena, datum';
+Objekt.defaultColumns = 'selektor, tip';
 Objekt.register();

@@ -12,7 +12,7 @@ var Types = keystone.Field.Types;
 
 var Product = new keystone.List('Product', {
 	autokey: {path: 'product', from: 'sifra', unique: true},
-    map: {name: 'name'},
+    map: {name: 'ime'},
 	track: true,
 	defaultSort: '-createdAt',
 	//noedit: true,
