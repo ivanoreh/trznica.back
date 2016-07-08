@@ -21,7 +21,7 @@ var Product = new keystone.List('Product', {
 
 Product.add({
     sifra: {type: Types.Text, default: Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 10)},
-    ime: {type: Types.Text, default: "Product", required: true, initial: true},
+    ime: {type: Types.Text, default: "", required: true, initial: true},
     slike: {type: Types.CloudinaryImages, publicId: 'product', folder: 'trznica', autoCleanup: true, collapse: true},
     cijena: {type: Types.Number, default: 100, required: true, format: '0,0.00kn', initial: true},
     sharepopust: {type: Types.Boolean, default: false, initial: true },
